@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/icons/haus.png" type="image/icon">
+    <script src="script.js" defer></script>
+    <title> Lange Immobilien GmbH</title>
+</head>
+<header class="header" id="header">
+    <nav>
+        <a href="index.html"><img src="img/icons/" height="20px" alt="">Immoblicke</a>
+        <ul class="nav-links-big">
+            <li><a href="index.html#startseite">Startseite</a></li>
+            <li><a href="index.html#informationen">Über uns</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="immobilien.html">Immobilien</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <a href="#" class="nav-menu-icon" id="nav-menu-icon"><img src="img/icons/menu.png" alt="" height="23px"></a>
+    </nav>
+</header>
+
+<body>
+
+<div class="breite">
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <h1>Allgemeines</h1>
+            <li><a href="index.html#startseite">Startseite</a></li>
+            <li><a href="index.html#informationen">Über uns</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="immobilien.html">Immobilien</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <h1>Rechtliches </h1>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+    </div>
+  
+    <div id="startseite">
+        <div class="hintergrund">
+            <div class="black">
+                <h1>Immobilien gesucht?</h1>
+                <h4>Finden sie ihre immobilie in ihrer nähe.</h4>
+
+                <div class="grey">
+
+                    <form action="immobilien.html" method="GET">
+                        <div class="eingabe">
+                            <input type="search" id="eingabe" name="eingabe" placeholder="Wohnort" required>
+                            <button type="submit" onclick="suchen()">Suchen</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="test">
+        <div id="leistungen">
+            <div class="services">
+
+                <div class="box">
+                    <p class="titel">Sie benötigen einen Energieausweis?</p>
+                    <p>Egal ob zu privaten zwecken oder für den Verkauf erstellen wir ihnen gerne
+                        einen Energieausweis
+                        zu ihrer Immobilie. <br>
+                        <a href="leistungen.html#einzelleistungen">Mehr erfahren</a>
+                    </p>
+                </div>
+
+                <div class="box">
+                    <p class="titel">Sie benötigen einen Energieausweis?</p>
+                    <p>
+                        Egal ob zu privaten zwecken oder für den Verkauf erstellen wir ihnen gerne
+                        einen Energieausweis
+                        zu ihrer Immobilie. <br>
+                        <br>
+                        <a href="leistungen.html#einzelleistungen">Mehr erfahren</a>
+                    </p>
+                </div>
+
+                <div class="box">
+                    <p class="titel">Sie benötigen einen Energieausweis?</p>
+                    <p>Wir begutachten und bewerten ihre Immobilie </p>
+                    <a href="leistungen.html#einzelleistungen">Mehr erfahren</a>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="services-text">
+                <h1>Immobilien, Wohnungen und Häuser</h1>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Est voluptatem quam enim <br>
+                mollitia assumenda nisi culpa explicabo quas nam accusantium doloremque possimus, <br>
+                ab tempora corporis iure eaque ipsam rem incidunt architecto illo iusto laboriosam <br>
+                blanditiis. Sequi ab esse magni sit autem nesciunt placeat eum culpa consequuntur <br>
+                quis ex doloribus dolore dicta nemo tenetur sint, tempore rem. <br>
+                <a href="leistungen.html">Mehr erfahren</a>
+            </div>
+
+
+
+        </div>
+        
+    </div>
+
+    <div class="shop">
+        <div class="test">
+
+
+
+            <a href="anzeige-01.html">
+                <div class="preview">
+
+                    <img class="cover-bild" src="img/immobilie_01.webp" alt="">
+
+                    <div class="preview-inhalt">
+                        <p class="titel">Stadtvilla mitten im Grünen</p>
+                        <p><img src="img/icons/map.png" height="10px"> 40629 Düsseldorf </p>
+                    </div>
+
+                    <div class="preview-fakten">
+                        <table class="fakten-tabelle">
+                            <tr>
+                                <th class="wert">1.700.000€</th>
+                                <th class="wert">184qm²</th>
+                                <th class="wert">7</th>
+                            </tr>
+                            <tr>
+                                <td class="einheit">Preis</td>
+                                <td class="einheit">Wohnfläche</td>
+                                <td class="einheit">Zimmer</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="preview">
+
+                    <img class="cover-bild" src="img/immobilie_02.jpeg" alt="">
+
+                    <div class="preview-inhalt">
+                        <p class="titel">Penthauswohnung im Zentrum</p>
+                        <p><img src="img/icons/map.png" height="10px"> 40822 Mettmann </p>
+                    </div>
+
+                    <div class="preview-fakten">
+                        <table class="fakten-tabelle">
+                            <tr>
+                                <th class="wert">748.000€</th>
+                                <th class="wert">122qm²</th>
+                                <th class="wert">4</th>
+                            </tr>
+                            <tr>
+                                <td class="einheit">Preis</td>
+                                <td class="einheit">Wohnfläche</td>
+                                <td class="einheit">Zimmer</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="preview">
+
+                    <img class="cover-bild" src="img/immobilie_03.jpeg" alt="">
+
+                    <div class="preview-inhalt">
+                        <p class="titel">Moderner Neubau in Langenfeld</p>
+                        <p><img src="img/icons/map.png" height="10px"> 40764 Langenfeld </p>
+                    </div>
+
+                    <div class="preview-fakten">
+                        <table class="fakten-tabelle">
+                            <tr>
+                                <th class="wert">435.000€</th>
+                                <th class="wert">104qm²</th>
+                                <th class="wert">3</th>
+                            </tr>
+                            <tr>
+                                <td class="einheit">Preis</td>
+                                <td class="einheit">Wohnfläche</td>
+                                <td class="einheit">Zimmer</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <a href="angebot.html"><button id="shop-btn">Mehr enddecken</button></a>
+
+    </div>
+
+
+    <div class="carousel-wrapper">
+        <button id="prevBtn" ><img class="left" src="img/icons/linker-pfeil.png" height="15px" alt=""></button>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <a href="anzeige-01.html">
+                        <div class="preview">
+                            <img class="cover-bild" src="img/immobilie_01.webp" alt="">
+                            <div class="preview-inhalt">
+                                <p class="titel">Stadtvilla mitten im Grünen</p>
+                                <p><img src="img/icons/map" height="10px"> 40629 Düsseldorf </p>
+                            </div>
+                            <div class="preview-fakten">
+                                <table class="fakten-tabelle">
+                                    <tr>
+                                        <th class="wert">1.700.000€</th>
+                                        <th class="wert">184qm²</th>
+                                        <th class="wert">7</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="einheit">Preis</td>
+                                        <td class="einheit">Wohnfläche</td>
+                                        <td class="einheit">Zimmer</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="">
+                        <div class="preview">
+                            <img class="cover-bild" src="img/immobilie_02.jpeg" alt="">
+                            <div class="preview-inhalt">
+                                <p class="titel">Penthauswohnung im Zentrum</p>
+                                <p><img src="img/icons/map.png" height="10px"> 40822 Mettmann </p>
+                            </div>
+                            <div class="preview-fakten">
+                                <table class="fakten-tabelle">
+                                    <tr>
+                                        <th class="wert">748.000€</th>
+                                        <th class="wert">122qm²</th>
+                                        <th class="wert">4</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="einheit">Preis</td>
+                                        <td class="einheit">Wohnfläche</td>
+                                        <td class="einheit">Zimmer</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel-item">
+                    <a href="">
+                        <div class="preview">
+                            <img class="cover-bild" src="img/immobilie_03.jpeg" alt="">
+                            <div class="preview-inhalt">
+                                <p class="titel">Moderner Neubau in Langenfeld</p>
+                                <p><img src="img/icons/map" height="10px"> 40764 Langenfeld </p>
+                            </div>
+                            <div class="preview-fakten">
+                                <table class="fakten-tabelle">
+                                    <tr>
+                                        <th class="wert">435.000€</th>
+                                        <th class="wert">104qm²</th>
+                                        <th class="wert">3</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="einheit">Preis</td>
+                                        <td class="einheit">Wohnfläche</td>
+                                        <td class="einheit">Zimmer</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button id="nextBtn"><img class="right" src="img/icons/rechter-pfeil.png" height="15px" alt=""></button>
+    </div>
+</div>
+
+<div id="informationen"></div>
+
+<div id="makler">
+    <div class="layout">
+        <div class="layout-links">
+
+            <img class="makler-profilbild" src="img/profilbild.jpeg" alt="">
+        </div>
+        <div class="layout-rechts">
+            <div class="zertifikate">
+                <div class="zertifikateOnKlick" onclick="toggleP()">
+
+                    <div id="zertifikatEins"><img class="zertifikat" src="img/immobilien-zertifikat.jpeg" alt="">
+                    </div>
+                    <div class="zertifikatZwei"><img class="zertifikat" src="img/wertermittlung-zertifikat.jpg"
+                            alt=""></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="makler-spruch">Bei fragen und anregungen freuen wir uns von ihrnen zu hören.
+        <br> Wir sind
+        täglich von 9:00- 17:00 Uhr für sie erreichbar.
+    </div>
+</div>
+
+
+    <div class="qanda">
+        <div class="faq">
+            <div class="frage" onclick="toggleAnswer('antwort-01')">
+                Wie lange dauert ein Verkauf im Schnitt?
+                <img id="icon-01" src="img/icons/plus.png" height="13px">
+            </div>
+            <div id="antwort-01" class="antwort">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quidem
+                inventore assumenda atque? In quibusdam error fuga perferendis aliquid earum
+                delectus optio nemo nobis.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="frage" onclick="toggleAnswer('antwort-02')">
+                Warum brauche ich einen Makler?
+                <img id="icon-02" src="img/icons/plus.png" height="13px">
+            </div>
+            <div id="antwort-02" class="antwort">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quidem
+                inventore assumenda atque? In quibusdam error fuga perferendis aliquid earum
+                delectus optio nemo nobis.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="frage" onclick="toggleAnswer('antwort-03')">
+                Wie setzt sich der Wert einer Immobilie zusammen?
+                <img id="icon-03" src="img/icons/plus.png" height="13px">
+            </div>
+            <div id="antwort-03" class="antwort">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quidem
+                inventore assumenda atque? In quibusdam error fuga perferendis aliquid earum
+                delectus optio nemo nobis.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="frage" onclick="toggleAnswer('antwort-04')">
+                Wie hoch ist die Provision?
+                <img id="icon-04" src="img/icons/plus.png" height="13px">
+            </div>
+            <div id="antwort-04" class="antwort">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quidem
+                inventore assumenda atque? In quibusdam error fuga perferendis aliquid earum
+                delectus optio nemo nobis.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="frage" onclick="toggleAnswer('antwort-05')">
+                Was muss ich bei einem Immobilienverkauf beachten?
+                <img id="icon-05" src="img/icons/plus.png" height="13px">
+            </div>
+            <div id="antwort-05" class="antwort">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quidem
+                inventore assumenda atque? In quibusdam error fuga perferendis aliquid earum
+                delectus optio nemo nobis.
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+</body>
+<footer>
+    <h3>Unser Newsletter</h3>
+    <br>
+    <?php
+    if (isset($_POST["button"]))
+    {
+        $email = $_POST["email"];
+        $filename = "newsletter_emails.txt";
+
+        // Überprüfen, ob die Datei existiert und lesbar ist
+        if (file_exists($filename) && is_readable($filename)) {
+            // Aktuellen Inhalt der Datei lesen
+            $existingData = file_get_contents($filename);
+
+            // Überprüfen, ob die Datei bereits Daten enthält
+            if (!empty($existingData)) {
+                // Komma und neue E-Mail hinzufügen
+                $newData = $existingData . ',' . $email;
+            } else {
+                // Neue E-Mail als ersten Eintrag hinzufügen
+                $newData = $email;
+            }
+        } else {
+            // Datei ist leer oder existiert nicht, daher nur die neue E-Mail hinzufügen
+            $newData = $email;
+        }
+
+        // Datei öffnen und neue Daten speichern
+        $data = fopen($filename, "w");
+
+        if ($data) {
+            fwrite($data, $newData);
+            fclose($data);
+            echo "Vielen Dank für ihr Interesse!";
+        } else {
+            echo "Beim Senden der Email ist etwas schief gelaufen";
+        }
+    }
+    ?>
+    <div class="newsletter" id="newsletter">
+        <form action="test.php#newsletter" method="POST">
+            <input type="email" name="email" id="email" placeholder="Ihre E-Mail" required>
+            <button type="submit" name="button" value="Anmelden">Senden</button>
+        </form>    
+    </div>
+    <div class="footer-nav">
+        <li><a href="index.html#startseite">Startseite</a></li>
+        <li><a href="index.html#informationen">Über uns</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="immobilien.html">Immobilien</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+    </div>
+    <div class="footer-links">
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+    </div>
+
+    <div class="copyright">Copyright &copy; 2023 Immoblicke GmbH</div>
+</footer>
+
+</html>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>

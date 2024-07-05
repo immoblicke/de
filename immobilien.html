@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="bilder/icons/haus.png" type="image/icon">
+    <script src="script.js" defer></script>
+    <title>Immoblicke GmbH</title>
+</head>
+<header class="header" id="header">
+    <nav>
+        <a href="index.html"><img src="img/icons/" height="20px" alt="">Immoblicke</a>
+        <ul class="nav-links-big">
+            <li><a href="index.html#startseite">Startseite</a></li>
+            <li><a href="index.html#informationen">Über uns</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="immobilien.html">Immobilien</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <a href="#" class="nav-menu-icon" id="nav-menu-icon"><img src="img/icons/menu.png" alt="" height="23px"></a>
+    </nav>
+</header>
+
+<body>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <h1>Allgemeines</h1>
+            <li><a href="index.html#startseite">Startseite</a></li>
+            <li><a href="index.html#informationen">Über uns</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="immobilien.html">Immobilien</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <h1>Rechtliches </h1>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+    </div>
+
+
+    <div class="alles-immobilien">
+        <form class="filter-form">
+            <div class="filter-container">
+                <div class="filter-item filter-item-mobile">
+                    <input type="search" id="wohnort" placeholder="Wohnort">
+                </div>
+
+                <div class="filter-item filter-item-mobile">
+                    <select id="objektart">
+                        <option value="">Objektart</option>
+                        <option value="wohnung">Wohnung</option>
+                        <option value="haus">Haus</option>
+                        <option value="grundstück">Grundstück</option>
+                    </select>
+                </div>
+                <div class="filter-item filter-item-mobile">
+                    <input type="number" id="groesse" placeholder="Größe (qm)">
+                </div>
+                <div class="filter-item filter-item-mobile">
+                    <input type="number" id="preis-von" placeholder="Preis von (€)">
+                </div>
+                <div class="filter-item filter-item-mobile">
+                    <input type="number" id="preis-bis" placeholder="Preis bis (€)">
+                </div>
+                <div class="filter-item ">
+                    <a href="#" id="filter-mobile-button">Filter</a>
+                    <button type="button" class="filter-mobile-button" onclick="suchen()">Suchen</button>
+                </div>
+            </div>
+            <div class="filter-mobile-menu">
+                hlllo
+            </div>
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const menuIcon = document.getElementById('filter-mobile-button');
+                const mobileMenu = document.getElementById('filter-mobile-menu');
+
+                menuIcon.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                });
+            });
+        </script>
+        <div class="ergebnisse">
+            <div class="ausgabe">
+                <h2>Ihre Ergebnisse</h2>
+                <div id="ergebnis-container">
+                    <!-- Ergebnisse werden hier angezeigt -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const immobilien = [
+            {
+                "objektart": "wohnung",
+                "stadt": "Berlin",
+                "postleitzahl": "10115",
+                "preis": 450000,
+                "grundstück": 200,
+                "wohnfläche": 120,
+                "schlafzimmer": 3,
+                "badezimmer": 2,
+                "zimmer": 4,
+                "stellplatz": "Garage",
+                "baujahr": 1990,
+                "beschreibung": "Moderne Wohnung im Herzen Berlins. Diese moderne Wohnung bietet nicht nur Komfort, sondern auch eine erstklassige Lage, die Ihnen einen unvergleichlichen Zugang zu allem bietet, was diese dynamische Stadt zu bieten hat. Mit ihren geschmackvollen Interieurs und hochwertigen Annehmlichkeiten ist sie der ideale Rückzugsort für Geschäftsreisende und Urlauber gleichermaßen. Erleben Sie Berlin von seiner besten Seite - direkt von Ihrer eigenen, zentral gelegenen Wohnung aus.",
+                "überschrift": "Moderne Wohnung in Berlin",
+                "bild": ["bilder/IMG_3556.jpg"],
+                "bilder": ["bilder/IMG_3556.jpg", "bilder/image2.jpg", "bilder/image3.jpg"],
+                "map": "https://maps.example.com/?q=Berlin,10115",
+                "ansprechpartner": "Max Mustermann"
+            },
+            {
+                "objektart": "haus",
+                "stadt": "Hamburg",
+                "postleitzahl": "20095",
+                "preis": 750000,
+                "grundstück": 500,
+                "wohnfläche": 180,
+                "schlafzimmer": 4,
+                "badezimmer": 3,
+                "zimmer": 6,
+                "stellplatz": "Garage",
+                "baujahr": 2005,
+                "beschreibung": "Großzügiges Familienhaus in Hamburg. Dieses moderne Haus bietet viel Platz und Komfort für eine große Familie. Mit einem großen Garten und einer erstklassigen Lage in einer ruhigen Nachbarschaft ist es ideal für Familien mit Kindern.",
+                "überschrift": "Familienhaus in Hamburg",
+                "bild": ["bilder/IMG_3576.jpg"],
+                "bilder": ["bilder/IMG_3576.jpg", "bilder/image4.jpg", "bilder/image5.jpg"],
+                "map": "https://maps.example.com/?q=Hamburg,20095",
+                "ansprechpartner": "Anna Schmidt"
+            },
+            {
+                "objektart": "grundstück",
+                "stadt": "München",
+                "postleitzahl": "80331",
+                "preis": 1200000,
+                "grundstück": 1000,
+                "wohnfläche": 0,
+                "schlafzimmer": 0,
+                "badezimmer": 0,
+                "zimmer": 0,
+                "stellplatz": "Keine",
+                "baujahr": 0,
+                "beschreibung": "Exklusives Baugrundstück in München. Dieses großzügige Grundstück bietet viel Platz für Ihr Traumhaus. Die erstklassige Lage in einem der begehrtesten Stadtteile Münchens macht es zu einer seltenen Gelegenheit für Bauherren und Investoren.",
+                "überschrift": "Baugrundstück in München",
+                "bild": ["bilder/IMG_3596.jpg"],
+                "bilder": ["bilder/IMG_3596.jpg", "bilder/image6.jpg"],
+                "map": "https://maps.example.com/?q=München,80331",
+                "ansprechpartner": "Michael Müller"
+            },
+            {
+                "objektart": "wohnung",
+                "stadt": "Köln",
+                "postleitzahl": "50667",
+                "preis": 580000,
+                "grundstück": 0,
+                "wohnfläche": 130,
+                "schlafzimmer": 3,
+                "badezimmer": 2,
+                "zimmer": 4,
+                "stellplatz": "Tiefgarage",
+                "baujahr": 2012,
+                "beschreibung": "Moderne Wohnung in Köln. Diese stilvolle Wohnung bietet modernen Komfort und eine hervorragende Lage nahe am Stadtzentrum. Ideal für Familien oder Pendler, die die Nähe zur Innenstadt schätzen.",
+                "überschrift": "Moderne Wohnung in Köln",
+                "bild": ["bilder/IMG_3616.jpg"],
+                "bilder": ["bilder/IMG_3616.jpg", "bilder/image7.jpg", "bilder/image8.jpg"],
+                "map": "https://maps.example.com/?q=Köln,50667",
+                "ansprechpartner": "Julia Schneider"
+            },
+            {
+                "objektart": "haus",
+                "stadt": "Frankfurt am Main",
+                "postleitzahl": "60311",
+                "preis": 950000,
+                "grundstück": 600,
+                "wohnfläche": 200,
+                "schlafzimmer": 4,
+                "badezimmer": 3,
+                "zimmer": 7,
+                "stellplatz": "Garage",
+                "baujahr": 2015,
+                "beschreibung": "Exklusives Haus in Frankfurt am Main. Dieses luxuriöse Haus bietet modernsten Komfort und eine hervorragende Lage. Mit einem großen Garten und einer stilvollen Inneneinrichtung ist es perfekt für anspruchsvolle Käufer.",
+                "überschrift": "Luxus-Haus in Frankfurt",
+                "bild": ["bilder/IMG_3636.jpg"],
+                "bilder": ["bilder/IMG_3636.jpg", "bilder/image9.jpg", "bilder/image10.jpg"],
+                "map": "https://maps.example.com/?q=Frankfurt,60311",
+                "ansprechpartner": "Maximilian Fischer"
+            },
+            {
+                "objektart": "grundstück",
+                "stadt": "Stuttgart",
+                "postleitzahl": "70173",
+                "preis": 800000,
+                "grundstück": 800,
+                "wohnfläche": 0,
+                "schlafzimmer": 0,
+                "badezimmer": 0,
+                "zimmer": 0,
+                "stellplatz": "Keine",
+                "baujahr": 0,
+                "beschreibung": "Attraktives Baugrundstück in Stuttgart. Dieses großzügige Grundstück ist ideal für den Bau eines Einfamilienhauses. Die ruhige Lage und die gute Anbindung an das Stadtzentrum machen es besonders attraktiv.",
+                "überschrift": "Baugrundstück in Stuttgart",
+                "bild": ["bilder/IMG_3656.jpg"],
+                "bilder": ["bilder/IMG_3656.jpg", "bilder/image11.jpg"],
+                "map": "https://maps.example.com/?q=Stuttgart,70173",
+                "ansprechpartner": "Sophie Weber"
+            },
+            {
+                "objektart": "wohnung",
+                "stadt": "Düsseldorf",
+                "postleitzahl": "40213",
+                "preis": 630000,
+                "grundstück": 0,
+                "wohnfläche": 140,
+                "schlafzimmer": 3,
+                "badezimmer": 2,
+                "zimmer": 5,
+                "stellplatz": "Tiefgarage",
+                "baujahr": 2018,
+                "beschreibung": "Exklusive Wohnung in Düsseldorf. Diese moderne Wohnung bietet viel Platz und Komfort in einer zentralen Lage. Ideal für Familien oder Berufspendler, die eine hochwertige Immobilie in der Stadt suchen.",
+                "überschrift": "Moderne Wohnung in Düsseldorf",
+                "bild": ["bilder/IMG_3676.jpg"],
+                "bilder": ["bilder/IMG_3676.jpg", "bilder/image12.jpg", "bilder/image13.jpg"],
+                "map": "https://maps.example.com/?q=Düsseldorf,40213",
+                "ansprechpartner": "Thomas Lehmann"
+            },
+            {
+                "objektart": "haus",
+                "stadt": "Leipzig",
+                "postleitzahl": "04109",
+                "preis": 480000,
+                "grundstück": 450,
+                "wohnfläche": 160,
+                "schlafzimmer": 3,
+                "badezimmer": 2,
+                "zimmer": 5,
+                "stellplatz": "Garage",
+                "baujahr": 2000,
+                "beschreibung": "Gemütliches Einfamilienhaus in Leipzig. Dieses Haus bietet viel Platz und einen großen Garten, ideal für Familien. Die ruhige Lage und die Nähe zu Schulen und Einkaufsmöglichkeiten machen es besonders attraktiv.",
+                "überschrift": "Einfamilienhaus in Leipzig",
+                "bild": ["bilder/IMG_3696.jpg"],
+                "bilder": ["bilder/IMG_3696.jpg", "bilder/image14.jpg", "bilder/image15.jpg"],
+                "map": "https://maps.example.com/?q=Leipzig,04109",
+                "ansprechpartner": "Sabine Wagner"
+            },
+            {
+                "objektart": "grundstück",
+                "stadt": "Hannover",
+                "postleitzahl": "30159",
+                "preis": 700000,
+                "grundstück": 900,
+                "wohnfläche": 0,
+                "schlafzimmer": 0,
+                "badezimmer": 0,
+                "zimmer": 0,
+                "stellplatz": "Keine",
+                "baujahr": 0,
+                "beschreibung": "Großzügiges Baugrundstück in Hannover. Dieses Grundstück bietet viel Platz für Ihr Traumhaus und liegt in einer ruhigen Wohngegend mit guter Anbindung an das Stadtzentrum.",
+                "überschrift": "Baugrundstück in Hannover",
+                "bild": ["bilder/IMG_3716.jpg"],
+                "bilder": ["bilder/IMG_3716.jpg", "bilder/image16.jpg"],
+                "map": "https://maps.example.com/?q=Hannover,30159",
+                "ansprechpartner": "Peter Müller"
+            },
+            {
+                "objektart": "wohnung",
+                "stadt": "Nürnberg",
+                "postleitzahl": "90402",
+                "preis": 550000,
+                "grundstück": 0,
+                "wohnfläche": 110,
+                "schlafzimmer": 3,
+                "badezimmer": 2,
+                "zimmer": 4,
+                "stellplatz": "Tiefgarage",
+                "baujahr": 2010,
+                "beschreibung": "Moderne Wohnung in Nürnberg. Diese stilvolle Wohnung bietet modernen Komfort und eine zentrale Lage nahe am Stadtzentrum. Ideal für Familien oder Pendler, die die Nähe zur Innenstadt schätzen.",
+                "überschrift": "Moderne Wohnung in Nürnberg",
+                "bild": ["bilder/IMG_3736.jpg"],
+                "bilder": ["bilder/IMG_3736.jpg", "bilder/image17.jpg", "bilder/image18.jpg"],
+                "map": "https://maps.example.com/?q=Nürnberg,90402",
+                "ansprechpartner": "Laura Müller"
+            },
+            {
+                "objektart": "haus",
+                "stadt": "Bremen",
+                "postleitzahl": "28195",
+                "preis": 620000,
+                "grundstück": 550,
+                "wohnfläche": 170,
+                "schlafzimmer": 4,
+                "badezimmer": 2,
+                "zimmer": 6,
+                "stellplatz": "Garage",
+                "baujahr": 2014,
+                "beschreibung": "Familienfreundliches Haus in Bremen. Dieses moderne Haus bietet viel Platz und einen großen Garten. Die ruhige Lage und die Nähe zu Schulen und Einkaufsmöglichkeiten machen es ideal für Familien.",
+                "überschrift": "Einfamilienhaus in Bremen",
+                "bild": ["bilder/IMG_3756.jpg"],
+                "bilder": ["bilder/IMG_3756.jpg", "bilder/image19.jpg", "bilder/image20.jpg"],
+                "map": "https://maps.example.com/?q=Bremen,28195",
+                "ansprechpartner": "Markus Schmidt"
+            },
+            {
+                "objektart": "grundstück",
+                "stadt": "Dresden",
+                "postleitzahl": "01067",
+                "preis": 650000,
+                "grundstück": 750,
+                "wohnfläche": 0,
+                "schlafzimmer": 0,
+                "badezimmer": 0,
+                "zimmer": 0,
+                "stellplatz": "Keine",
+                "baujahr": 0,
+                "beschreibung": "Schönes Baugrundstück in Dresden. Dieses großzügige Grundstück bietet viel Platz für den Bau Ihres Traumhauses. Die ruhige Lage und die gute Anbindung an das Stadtzentrum machen es besonders attraktiv.",
+                "überschrift": "Baugrundstück in Dresden",
+                "bild": ["bilder/IMG_3776.jpg"],
+                "bilder": ["bilder/IMG_3776.jpg", "bilder/image21.jpg"],
+                "map": "https://maps.example.com/?q=Dresden,01067",
+                "ansprechpartner": "Christina Schneider"
+            },
+            {
+                "objektart": "wohnung",
+                "stadt": "Essen",
+                "postleitzahl": "45127",
+                "preis": 530000,
+                "grundstück": 0,
+                "wohnfläche": 120,
+                "schlafzimmer": 3,
+                "badezimmer": 2,
+                "zimmer": 4,
+                "stellplatz": "Tiefgarage",
+                "baujahr": 2016,
+                "beschreibung": "Moderne Wohnung in Essen. Diese stilvolle Wohnung bietet modernen Komfort und eine zentrale Lage nahe am Stadtzentrum. Ideal für Familien oder Pendler, die die Nähe zur Innenstadt schätzen.",
+                "überschrift": "Moderne Wohnung in Essen",
+                "bild": ["bilder/IMG_3796.jpg"],
+                "bilder": ["bilder/IMG_3796.jpg", "bilder/image22.jpg", "bilder/image23.jpg"],
+                "map": "https://maps.example.com/?q=Essen,45127",
+                "ansprechpartner": "Natalie Wagner"
+            },
+            {
+                "objektart": "haus",
+                "stadt": "Dortmund",
+                "postleitzahl": "44135",
+                "preis": 670000,
+                "grundstück": 500,
+                "wohnfläche": 190,
+                "schlafzimmer": 4,
+                "badezimmer": 3,
+                "zimmer": 7,
+                "stellplatz": "Garage",
+                "baujahr": 2012,
+                "beschreibung": "Großzügiges Familienhaus in Dortmund. Dieses moderne Haus bietet viel Platz und Komfort für eine große Familie. Mit einem großen Garten und einer erstklassigen Lage in einer ruhigen Nachbarschaft ist es ideal für Familien mit Kindern.",
+                "überschrift": "Familienhaus in Dortmund",
+                "bild": ["bilder/IMG_3816.jpg"],
+                "bilder": ["bilder/IMG_3816.jpg", "bilder/image24.jpg", "bilder/image25.jpg"],
+                "map": "https://maps.example.com/?q=Dortmund,44135",
+                "ansprechpartner": "Andreas Becker"
+            },
+            {
+                "objektart": "grundstück",
+                "stadt": "Bonn",
+                "postleitzahl": "53111",
+                "preis": 750000,
+                "grundstück": 850,
+                "wohnfläche": 0,
+                "schlafzimmer": 0,
+                "badezimmer": 0,
+                "zimmer": 0,
+                "stellplatz": "Keine",
+                "baujahr": 0,
+                "beschreibung": "Großzügiges Baugrundstück in Bonn. Dieses Grundstück bietet viel Platz für den Bau Ihres Traumhauses und liegt in einer ruhigen Wohngegend mit guter Anbindung an das Stadtzentrum.",
+                "überschrift": "Baugrundstück in Bonn",
+                "bild": ["bilder/IMG_3836.jpg"],
+                "bilder": ["bilder/IMG_3836.jpg", "bilder/image26.jpg"],
+                "map": "https://maps.example.com/?q=Bonn,53111",
+                "ansprechpartner": "Katharina Schulz"
+            },
+            {
+                "objektart": "wohnung",
+                "stadt": "Mannheim",
+                "postleitzahl": "68159",
+                "preis": 500000,
+                "grundstück": 0,
+                "wohnfläche": 110,
+                "schlafzimmer": 3,
+                "badezimmer": 2,
+                "zimmer": 4,
+                "stellplatz": "Tiefgarage",
+                "baujahr": 2013,
+                "beschreibung": "Moderne Wohnung in Mannheim. Diese stilvolle Wohnung bietet modernen Komfort und eine zentrale Lage nahe am Stadtzentrum. Ideal für Familien oder Pendler, die die Nähe zur Innenstadt schätzen.",
+                "überschrift": "Moderne Wohnung in Mannheim",
+                "bild": ["bilder/IMG_3856.jpg"],
+                "bilder": ["bilder/IMG_3856.jpg", "bilder/image27.jpg", "bilder/image28.jpg"],
+                "map": "https://maps.example.com/?q=Mannheim,68159",
+                "ansprechpartner": "Felix Meier"
+            },
+            {
+                "objektart": "haus",
+                "stadt": "Karlsruhe",
+                "postleitzahl": "76133",
+                "preis": 780000,
+                "grundstück": 600,
+                "wohnfläche": 200,
+                "schlafzimmer": 4,
+                "badezimmer": 3,
+                "zimmer": 7,
+                "stellplatz": "Garage",
+                "baujahr": 2016,
+                "beschreibung": "Großzügiges Einfamilienhaus in Karlsruhe. Dieses moderne Haus bietet viel Platz und Komfort für eine große Familie. Mit einem großen Garten und einer erstklassigen Lage in einer ruhigen Nachbarschaft ist es ideal für Familien mit Kindern.",
+                "überschrift": "Einfamilienhaus in Karlsruhe",
+                "bild": ["bilder/IMG_3876.jpg"],
+                "bilder": ["bilder/IMG_3876.jpg", "bilder/image29.jpg", "bilder/image30.jpg"],
+                "map": "https://maps.example.com/?q=Karlsruhe,76133",
+                "ansprechpartner": "Laura Fischer"
+            },
+            {
+                "objektart": "grundstück",
+                "stadt": "Aachen",
+                "postleitzahl": "52062",
+                "preis": 600000,
+                "grundstück": 700,
+                "wohnfläche": 0,
+                "schlafzimmer": 0,
+                "badezimmer": 0,
+                "zimmer": 0,
+                "stellplatz": "Keine",
+                "baujahr": 0,
+                "beschreibung": "Attraktives Baugrundstück in Aachen. Dieses großzügige Grundstück ist ideal für den Bau eines Einfamilienhauses. Die ruhige Lage und die gute Anbindung an das Stadtzentrum machen es besonders attraktiv.",
+                "überschrift": "Baugrundstück in Aachen",
+                "bild": ["bilder/IMG_3896.jpg"],
+                "bilder": ["bilder/IMG_3896.jpg", "bilder/image31.jpg"],
+                "map": "https://maps.example.com/?q=Aachen,52062",
+                "ansprechpartner": "Patrick Weber"
+            },
+            {
+                "objektart": "wohnung",
+                "stadt": "Mainz",
+                "postleitzahl": "55116",
+                "preis": 480000,
+                "grundstück": 0,
+                "wohnfläche": 100,
+                "schlafzimmer": 2,
+                "badezimmer": 1,
+                "zimmer": 3,
+                "stellplatz": "Tiefgarage",
+                "baujahr": 2011,
+                "beschreibung": "Moderne Wohnung in Mainz. Diese stilvolle Wohnung bietet modernen Komfort und eine zentrale Lage nahe am Stadtzentrum. Ideal für Familien oder Pendler, die die Nähe zur Innenstadt schätzen.",
+                "überschrift": "Moderne Wohnung in Mainz",
+                "bild": ["bilder/IMG_3916.jpg"],
+                "bilder": ["bilder/IMG_3916.jpg", "bilder/image32.jpg", "bilder/image33.jpg"],
+                "map": "https://maps.example.com/?q=Mainz,55116",
+                "ansprechpartner": "Nina Becker"
+            },
+            {
+                "objektart": "haus",
+                "stadt": "Freiburg im Breisgau",
+                "postleitzahl": "79098",
+                "preis": 850000,
+                "grundstück": 650,
+                "wohnfläche": 210,
+                "schlafzimmer": 5,
+                "badezimmer": 3,
+                "zimmer": 8,
+                "stellplatz": "Garage",
+                "baujahr": 2017,
+                "beschreibung": "Luxuriöses Einfamilienhaus in Freiburg im Breisgau. Dieses moderne Haus bietet viel Platz und Komfort für eine große Familie. Mit einem großen Garten und einer erstklassigen Lage in einer ruhigen Nachbarschaft ist es ideal für Familien mit Kindern.",
+                "überschrift": "Luxus-Einfamilienhaus in Freiburg",
+                "bild": ["bilder/IMG_3936.jpg"],
+                "bilder": ["bilder/IMG_3936.jpg", "bilder/image34.jpg", "bilder/image35.jpg"],
+                "map": "https://maps.example.com/?q=Freiburg,79098",
+                "ansprechpartner": "Daniel Hoffmann"
+            },
+            {
+                "objektart": "grundstück",
+                "stadt": "Heidelberg",
+                "postleitzahl": "69117",
+                "preis": 720000,
+                "grundstück": 800,
+                "wohnfläche": 0,
+                "schlafzimmer": 0,
+                "badezimmer": 0,
+                "zimmer": 0,
+                "stellplatz": "Keine",
+                "baujahr": 0,
+                "beschreibung": "Schönes Baugrundstück in Heidelberg. Dieses großzügige Grundstück bietet viel Platz für den Bau Ihres Traumhauses. Die ruhige Lage und die gute Anbindung an das Stadtzentrum machen es besonders attraktiv.",
+                "überschrift": "Baugrundstück in Heidelberg",
+                "bild": ["bilder/IMG_3956.jpg"],
+                "bilder": ["bilder/IMG_3956.jpg", "bilder/image36.jpg"],
+                "map": "https://maps.example.com/?q=Heidelberg,69117",
+                "ansprechpartner": "Pauline Sommer"
+            }
+        ]
+
+
+
+        function getQueryParameter(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Beim Laden der Seite den Wert des Wohnorts in das entsprechende Feld einfügen
+        window.onload = function () {
+            const wohnort = getQueryParameter('eingabe');
+            if (wohnort) {
+                document.getElementById('wohnort').value = wohnort;
+            }
+            suchen();
+        };
+        // Wird ausgelöst bei Klick auf den Button Suchen und bei jeder eingabe
+        function suchen() {
+
+            // Eingabewerte der Inputfelder werden in Variablen gespeichert 
+            const wohnort = document.getElementById('wohnort').value;
+            const objektart = document.getElementById('objektart').value;
+            const groesse = document.getElementById('groesse').value;
+            const preisVon = document.getElementById('preis-von').value;
+            const preisBis = document.getElementById('preis-bis').value;
+
+            // Sucht sich den Ergebniss Container um das Ergebnis Später dort abzulegen
+            const ergebnisContainer = document.getElementById('ergebnis-container');
+            ergebnisContainer.innerHTML = ''; // Clear previous results
+
+
+            // Wahrscheinlich den eigentlichen filter
+            const gefilterteImmobilien = immobilien.filter(immobilie => {
+                return (
+                    (!wohnort || immobilie.stadt.toLowerCase().includes(wohnort.toLowerCase())) &&
+                    (!objektart || immobilie.objektart === objektart) &&
+                    (!groesse || immobilie.wohnfläche <= groesse + 10 && immobilie.wohnfläche >= groesse - 10) &&
+                    (!preisVon || immobilie.preis >= preisVon) &&
+                    (!preisBis || immobilie.preis <= preisBis)
+                );
+            });
+
+            // immobilie.groesse <= groesse +10 && immobilie.groesse >= groesse -10
+            //(grosse -10) <= immobilie.wohnfläche && immobilie.wohnfläche <= (groesse + 10)
+
+
+            // Abfrage: Wenn eingaben nicht zu einer Immobilie passen
+            if (gefilterteImmobilien.length === 0) {
+                // Dann wird "Kein Passendes ergebis ausgegeben"
+                ergebnisContainer.innerHTML = '<p>Keine passenden Ergebnisse gefunden.</p>';
+            } else {
+                // Wenn eingaben zu einer Immobilie passen dann werden diese jeweils ausgegeben
+                gefilterteImmobilien.forEach(immobilie => {
+                    const ergebnisItem = document.createElement('div');
+                    ergebnisItem.className = 'einzelne-anzeige';
+
+                    // Html Ergebnis Einer Anzeige
+                    ergebnisItem.innerHTML = `
+
+                        <div class="anzeige">
+
+                            <img src="${immobilie.bild}" alt="" class="anzeige-img">
+
+                            <div class="anzeige-infos">
+                                <div class="anzeige-infos-header">
+                                
+                                    <h3>${immobilie.überschrift}</h3>
+
+                                    <h4><img src="bilder/map.png" alt="" height="13px"> ${immobilie.postleitzahl} ${immobilie.stadt} <br> <br></h4>
+                                    
+                                    <p>${immobilie.beschreibung}</p>
+                            </div>  
+                                   <div class="anzeige-infos-fakten">
+
+                                        <table class="anzeige-infos-fakten-tabelle">
+                                            <tr>
+                                                <th class="anzeige-infos-fakten-tabelle-wert">${immobilie.preis} €</th>
+                                                <th class="anzeige-infos-fakten-tabelle-wert">${immobilie.wohnfläche} m²</th>
+                                                <th class="anzeige-infos-fakten-tabelle-wert">${immobilie.zimmer}</th>
+                                            </tr>
+                                            <tr>
+                                                <td class="anzeige-infos-fakten-tabelle-einheit">Preis</td>
+                                                <td class="anzeige-infos-fakten-tabelle-einheit">Wohnfläche</td>
+                                                <td class="anzeige-infos-fakten-tabelle-einheit">Zimmer</td>
+                                            </tr>
+                                        </table>
+
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    `;
+                    // Fügt das Ergebnis dem Ergebnis Container hinzu
+                    ergebnisContainer.appendChild(ergebnisItem);
+                });
+
+            }
+        }
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+<footer>
+    <h3>Unser Newsletter</h3>
+    <br>
+    <?php
+    if (isset($_POST["button"]))
+    {
+        $email = $_POST["email"];
+        $filename = "newsletter_emails.txt";
+
+        // Überprüfen, ob die Datei existiert und lesbar ist
+        if (file_exists($filename) && is_readable($filename)) {
+            // Aktuellen Inhalt der Datei lesen
+            $existingData = file_get_contents($filename);
+
+            // Überprüfen, ob die Datei bereits Daten enthält
+            if (!empty($existingData)) {
+                // Komma und neue E-Mail hinzufügen
+                $newData = $existingData . ',' . $email;
+            } else {
+                // Neue E-Mail als ersten Eintrag hinzufügen
+                $newData = $email;
+            }
+        } else {
+            // Datei ist leer oder existiert nicht, daher nur die neue E-Mail hinzufügen
+            $newData = $email;
+        }
+
+        // Datei öffnen und neue Daten speichern
+        $data = fopen($filename, "w");
+
+        if ($data) {
+            fwrite($data, $newData);
+            fclose($data);
+            echo "Vielen Dank für ihr Interesse!";
+        } else {
+            echo "Beim Senden der Email ist etwas schief gelaufen";
+        }
+    }
+    ?>
+    <div class="newsletter" id="newsletter">
+        <form action="test.php#newsletter" method="POST">
+            <input type="email" name="email" id="email" placeholder="Ihre E-Mail" required>
+            <button type="submit" name="button" value="Anmelden">Senden</button>
+        </form>    
+    </div>
+    <div class="footer-nav">
+        <li><a href="index.html#startseite">Startseite</a></li>
+        <li><a href="index.html#informationen">Über uns</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="immobilien.html">Immobilien</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+    </div>
+    <div class="footer-links">
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+    </div>
+
+    <div class="copyright">Copyright &copy; 2023 Immoblicke GmbH</div>
+</footer>
+
+</html>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>

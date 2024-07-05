@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="bilder/icons/haus.png" type="image/icon">
+    <script src="script.js" defer></script>
+    <title>Immoblicke GmbH</title>
+</head>
+<header class="header" id="header">
+    <nav>
+        <a href="index.html"><img src="img/icons/" height="20px" alt="">Immoblicke</a>
+        <ul class="nav-links-big">
+            <li><a href="index.html#startseite">Startseite</a></li>
+            <li><a href="index.html#informationen">Über uns</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="immobilien.html">Immobilien</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+        <a href="#" class="nav-menu-icon" id="nav-menu-icon"><img src="img/icons/menu.png" alt="" height="23px"></a>
+    </nav>
+</header>
+
+<body>
+    <div class="mobile-menu" id="mobile-menu">
+        <ul>
+            <h1>Allgemeines</h1>
+            <li><a href="index.html#startseite">Startseite</a></li>
+            <li><a href="index.html#informationen">Über uns</a></li>
+            <li><a href="leistungen.html">Leistungen</a></li>
+            <li><a href="immobilien.html">Immobilien</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <h1>Rechtliches </h1>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+            <li><a href="impressum.html">Impressum</a></li>
+        </ul>
+    </div>
+    <div class="kontakt-alles">
+        <div class="map"></div>
+        <div class="kontakt">
+            <div class="kontakt-text">
+                <h1>Kontaktieren Sie Uns Gerne</h1>
+                <br>
+                <h3>Hallo! Wir freuen uns darauf mit ihnen ein Projekt zu starten!</h3>
+                <br>
+                Sprechen sie uns Gerne an und wir beraten sie jederzeit Kostenlos zu unseren Leistungen oder Angeboten.
+                <br>
+                <br>
+                <p>Sende uns eine Email an <a href="mailto:kontakt@immoblicke.de">kontakt@immoblicke.de</a> oder füllen
+                    sie das Formular aus.</p>
+            </div>
+            <div class="kontakt-daten-hintergrund">
+                <div class="kontakt-daten">
+                    <div class="kontakt-daten-box1">
+                        <div class="kontakt-daten-box2">
+                            <h3>Rufen sie uns an</h3>
+                            <br>
+                            015751785247
+                            <br>
+                            01332345344
+                            <br>
+
+                        </div>
+
+                        <div class="kontakt-daten-box2">
+
+                            <h3>Standort</h3>
+                            <br>
+                            Fabershof 24
+                            <br>
+                            40699 Erkrath
+                            <br>
+                            Deutschland
+                            <br>
+                        </div>
+                    </div>
+                    <h3>Öffnungszeiten</h3>
+                    <br>
+                    Mo - Fr......10 - 19 Uhr
+                    <br>
+                    Sa - So...Geschlossen
+                </div>
+            </div>
+            <div class="kontakt-formular">
+                <form action="" class="kontakt-field">
+                    <input type="name" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Telefon" required>
+                    <input type="text" placeholder="Ihre Nachricht" class="nachricht" required>
+                    <button type="submit"> Senden </button>
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</body>
+<footer>
+    <h3>Unser Newsletter</h3>
+    <br>
+    <?php
+    if (isset($_POST["button"]))
+    {
+        $email = $_POST["email"];
+        $filename = "newsletter_emails.txt";
+
+        // Überprüfen, ob die Datei existiert und lesbar ist
+        if (file_exists($filename) && is_readable($filename)) {
+            // Aktuellen Inhalt der Datei lesen
+            $existingData = file_get_contents($filename);
+
+            // Überprüfen, ob die Datei bereits Daten enthält
+            if (!empty($existingData)) {
+                // Komma und neue E-Mail hinzufügen
+                $newData = $existingData . ',' . $email;
+            } else {
+                // Neue E-Mail als ersten Eintrag hinzufügen
+                $newData = $email;
+            }
+        } else {
+            // Datei ist leer oder existiert nicht, daher nur die neue E-Mail hinzufügen
+            $newData = $email;
+        }
+
+        // Datei öffnen und neue Daten speichern
+        $data = fopen($filename, "w");
+
+        if ($data) {
+            fwrite($data, $newData);
+            fclose($data);
+            echo "Vielen Dank für ihr Interesse!";
+        } else {
+            echo "Beim Senden der Email ist etwas schief gelaufen";
+        }
+    }
+    ?>
+    <div class="newsletter" id="newsletter">
+        <form action="test.php#newsletter" method="POST">
+            <input type="email" name="email" id="email" placeholder="Ihre E-Mail" required>
+            <button type="submit" name="button" value="Anmelden">Senden</button>
+        </form>    
+    </div>
+    <div class="footer-nav">
+        <li><a href="index.html#startseite">Startseite</a></li>
+        <li><a href="index.html#informationen">Über uns</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="immobilien.html">Immobilien</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+    </div>
+    <div class="footer-links">
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+    </div>
+
+    <div class="copyright">Copyright &copy; 2023 Immoblicke GmbH</div>
+</footer>
+
+</html>
+
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
