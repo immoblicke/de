@@ -14,7 +14,7 @@
 }
 
 :root {
-    --primary-color: red; /* Primäre Farbe */
+    --primary-color: #292929; /* Primäre Farbe */
     --secondary-color: #292929; /* Sekundäre Farbe */
     --font-color: rgb(255, 255, 255);
     --img-background: rgb(212, 212, 212);
